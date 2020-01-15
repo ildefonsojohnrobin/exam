@@ -1,0 +1,33 @@
+<sm-simple-sidenav [menu]="menu" [activeID]="'2'" [withArrow]="true" (onSidenav)="onClick($event)">
+</sm-simple-sidenav>
+
+<div *ngIf="order">
+  <div class="ml-auto card w-50"   *ngFor="let country of countries" (click)="getId(country.id)"
+  (change)="onChange($event.target.value)">
+  <h3> {{country.name}}</h3>
+  <p> Stock: {{country.cities[0].Coffee_Beans}} Units </p>
+  <p> Cofee Beans: {{country.cities[0].Coffee_Beans}} Units </p>
+  <p> Sugar: {{country.cities[0].Sugar}} Units</p>
+  <p> Milk: {{country.cities[0].Milk}} Units</p>
+  <button>Add to cart</button>
+</div>
+</div>
+
+<div *ngIf="history">   
+    <table  >
+      <tr>
+        <th>Drinks</th> 
+        <th>Coffee Beans</th> 
+        <th>Sugar</th> 
+        <th>Milk</th> 
+      </tr>
+    <tr *ngFor="let country of countries" (click)="getId(country.id)"
+    (change)="onChange($event.target.value)">
+      <!-- <td>Stock: {{country.cities[0].Coffee_Beans}} Units </td> -->
+      <td> {{country.cities.name}} Units</td> 
+      <td> Cofee Beans: {{country.cities[0].Coffee_Beans}} Units</td> 
+      <td>Sugar: {{country.cities[0].Sugar}} Units</td>
+      <td>Milk: {{country.cities[0].Milk}} Units</td> 
+    </tr>
+  </table> 
+</div>
